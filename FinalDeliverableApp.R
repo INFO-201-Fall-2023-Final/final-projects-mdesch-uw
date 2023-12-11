@@ -9,8 +9,8 @@ df <- read.csv("booksheet.csv")
 # Define the first page content; uses `tabPanel()` and `sidebarLayout()`
 # layout functions together (as an example)
 page_one <- tabPanel(
-  "First Page", # label for the tab in the navbar
-  titlePanel("Page 1"), # show with a displayed title
+  "About", # label for the tab in the navbar
+  titlePanel("About"), # show with a displayed title
   
   h3("Food & Housing Insecurity"),
   
@@ -43,15 +43,15 @@ page_one <- tabPanel(
   br(),
   
   p("For the remainder of these pages, we will be examining this upward trend
-        for it's causes and effects, as well as the implications of these changes.")
+      for it's causes and effects, as well as the implications of these changes.")
     )
   
 
 
 # Define content for the second page
 page_two <- tabPanel(
-  "Second Page", # label for the tab in the navbar
-  titlePanel("Page 2"), # show with a displayed title
+  "by Demographics", # label for the tab in the navbar
+  titlePanel("by Demographics"), # show with a displayed title
   sidebarLayout(
     sidebarPanel(plotlyOutput(outputId = "column"),
     ),
@@ -66,26 +66,31 @@ page_two <- tabPanel(
       
       br(),
       
-      ("To the left, a bar plot showcases the food insecurity rates of students by ethnicity.
-       This difference is important to be aware of with these kinds of issues; it's clear that
-       while all students are impacted by these effects, certain communities are far more 
-       affected. Food and housing insecurity rates are a way that colleges can be more exclusive
+      p("To the left, a bar plot showcases the food insecurity rates of students by ethnicity.
+       We can see that Black/African American and American Indian are the two groups experiencing
+       the highest food insecurity rates (56.0 and 52.2, respectively), whereas Asian American and White, 
+       the two groups with the lowest rates, have rates of 29.7 and 34.8, respectively. 
+       This difference is important to be aware of with these kinds of issues; it's clear that while
+       all students are impacted by these effects, certain communities are far more 
+       affected."),
+      
+      br(),
+      
+      p("Food and housing insecurity rates are a way that colleges can be more exclusive
        towards non-white students; there are a variety of socie-economic reasons that certain groups are more
        vulnerable to food insecurity. For example, food deserts are areas where nutritious and
        affordable food are difficult to find. These typically are low-income communities, and/or 
        predominantly non-white communities. Combining issues like these with the already existing
        inequalities in terms of attending college for marginalized communities, it is clear that
-       while all students are affected, some are significantly more affected than others and "),
+       while all students are affected, some are significantly more affected than others.")
     )
   )
-
-  # ...more content would go here...
 )
 
 # Define content for the third page
 page_three <- tabPanel(
-  "Third Page", # label for the tab in the navbar
-  titlePanel("Page 3"), # show with a displayed title
+  "After COVID-19", # label for the tab in the navbar
+  titlePanel("After COVID-19"), # show with a displayed title
   sidebarLayout(
     sidebarPanel(plotlyOutput(outputId = "line"),
     ),
@@ -95,25 +100,34 @@ page_three <- tabPanel(
         likely to experience some level of food or housing insecurity throughout 
         the duration of their education. Additionally, it has been observed that 
         COVID-19 exacerbated issues of food insecurity and housing insecurity for 
-        all demographic groups, but that younger people (represented here by the 
-        dark red line on the chart), the typical age of college students, were most 
-        vulnerable in these cases due to campus shutdowns depriving students of housing 
-        and food sources, and the likelihood of unemployment or loss of jobs during this 
-        period. Comparatively, these percentages decrease at older ages."),
+        all demographic groups, especially for younger people"),
+    
     br(),
-    p("A study performed by Oregon State University observes that the percentage of college
-      aged students reporting food insecurity in the state tripled from 4.50% to 13.5%.
-      This shows clearly that COVID-19 had an extremely significant effect on student food
-      insecurity. While other age groups did show an increase in food insecurity rates, 
-      these were less drastic (both roughly doubling).")
+    
+    p("The graph on the left shows a study performed by Oregon State University 
+         on the Food Insecurity rates among different age groups from 2019 to 2021.
+         We can observe that the group including the typical age of collge students, 
+         represented here by the dark red line, was the most vulnerable, 
+         experiencing a tripling of its Food Insecurity percentage from 4.50% to 13.5%. 
+         The other two lines exhibited a 
+         similar increase, rising from 4.2% to 9.2% and 2.7% to 6.9%, respectively."),
+    
+    br(),
+    
+    p("While other age groups did show an increase in food insecurity rates, 
+      these increases were less drastic (both roughly doubling). The chart clearly demonstrates
+      that COVID-19 had an extremely significant effect on student food
+      insecurity. We believe that this severe phenomenom was caused by campus shutdowns depriving students of housing 
+        and food sources, and the likelihood of unemployment or loss of jobs during this 
+        period. In comparison, these percentages decrease as age increases.")
     )
   )
 )
 
 # Define content for the fourth page
 page_four <- tabPanel(
-  "Fourth Page", # label for the tab in the navbar
-  titlePanel("Page 4"), # show with a displayed title
+  "Solutions", # label for the tab in the navbar
+  titlePanel("Solutions"), # show with a displayed title
   h3("Solutions and Predictions"),
   p("Students struggling financially is not a new phenomenon, but it has been 
   exacerbated by the COVID-19 pandemic. Campus shutdowns have cut off many 
@@ -124,7 +138,9 @@ page_four <- tabPanel(
   their jobs during the pandemic. Much like the overall issue, these issues are 
   even worse for vulnerable communities, which are hit harder and take longer to 
   recover from situations such as these. "),
+  
   br(),
+  
   p("These issues could be fixed; cheaper tuition, more financial aid and support 
   for students, more resources such as food banks or free meals or housing, and 
   government student debt relief would vastly alleviate these stressors for so 
@@ -134,14 +150,36 @@ page_four <- tabPanel(
   # ...more content would go here...
 )
 
+page_five <- tabPanel(
+  "Overview", # label for the tab in the navbar
+  titlePanel("Overview"), # show with a displayed title
+  h3("Why Care?"),
+  p("High education costs force many college students to make a challenging choice
+  between meeting their basic living needs and pursuing higher academic degrees, 
+  resulting in food and housing insecurity. Studies have shown that all ethnicities 
+  encountercommunities with lower incomes or predominantly non-white residents face
+    more severe circumstances; this might significantly impacting these groups' access to colleges."),
+  
+  br(),
+  
+  h3("Our Thoughts"),
+  p("As a student at University of Washington, where we have a diverse student body
+   representing various ethnicities, it's crucial to acknowledge the significance of this issue.
+  There are actionable steps that can address this problem; with a strong economic incentive, 
+    institutions could offer increased financial aid and support for students in need. This approach
+    would alleviate the burden on students, removing the need to choose between their basic
+    life necessities and pursuing their studies.")
+)
+
 # Pass each page to a multi-page layout (`navbarPage`)
 
 ui <- navbarPage(
-  "My Application", # application title
+  "Food Insecurity", # application title
   page_one,         # include the first page content
   page_two,         # include the second page content
   page_three,        # include the third page content
-  page_four         # include the fourth page content
+  page_four,         # include the fourth page content
+  page_five,         # include the fifth page content
 )
 server <- function(input, output, session) {
   output$column <- renderPlotly({ 
